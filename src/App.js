@@ -10,12 +10,13 @@ import Navbar from "./components/Navbar";
 import AdInformation from "./components/AdInformation";
 import DashBoard from "./admin/DashBoard";
 import AdminSignIn from "./admin/AdminSignIn";
-import PricePage from "./components/PricePage";
+// import PricePage from "./components/PricePage";
 import PricePlan from "./components/PricePlan";
 import FreeAd from "./pages/FreeAd";
 
 export const Store = createContext();
 function App() {
+  const [allAds, setAllAds] = useState([]);
   const [isLogin, setIsLogin] = useState(false);
   // home page state
   const [listOfAds, setListOfAds] = useState([]);
@@ -54,6 +55,8 @@ function App() {
           setIsAdminLogin,
           adsForVerify,
           setAdsForVerify,
+          allAds,
+          setAllAds,
         }}
       >
         <BrowserRouter>
@@ -73,7 +76,7 @@ function App() {
               element={isLogin ? <FreeAd /> : <Navigate to={"/signin"} />}
             />
             <Route
-              path="/favorite/:id"
+              path="/favorite"
               element={isLogin ? <Favourites /> : <Navigate to={"/signin"} />}
             />
 
@@ -86,7 +89,7 @@ function App() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/Adinfo/:id" element={<AdInformation />} />
             <Route
-              path="/adminDashBoard/:id"
+              path="/adminDashBoard"
               element={
                 isAdminLogin ? <DashBoard /> : <Navigate to={"/adminSignIn"} />
               }

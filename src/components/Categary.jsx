@@ -14,17 +14,35 @@ import { Store } from "../App";
 import { FetchAllAds } from "../hooks/FetchAllAds";
 
 const Categary = () => {
-  const { setListOfAds, city, setCity, category, setCategory } =
-    useContext(Store);
+  const {
+    setListOfAds,
+    allAds,
+    setAllAds,
+    city,
+    setCity,
+    category,
+    setCategory,
+  } = useContext(Store);
 
   const onChangeHandlarForCityAndCategory = () => {
-    const data = FetchAllAds(city, category);
-    data.then((value) => {
-      setListOfAds(value);
+    const newArr = allAds.filter((item) => {
+      return city === item.adcity && category === item.adcategory;
     });
+    setListOfAds(newArr);
   };
+
   useEffect(() => {
-    onChangeHandlarForCityAndCategory();
+    const data = FetchAllAds();
+    data.then((value) => {
+      setAllAds(value);
+    });
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      onChangeHandlarForCityAndCategory();
+      // console.log(allAds);
+    }, 100);
   }, [category, city]);
   return (
     <>

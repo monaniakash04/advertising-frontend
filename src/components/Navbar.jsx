@@ -29,7 +29,7 @@ const Navbar = () => {
             <NavLink to={"/account"}>
               <li className="cursor-pointer">ACCOUT</li>
             </NavLink>
-            <NavLink to={"/favorite/:id"}>
+            <NavLink to={"/favorite"}>
               <li className="cursor-pointer">FAVOURITE</li>
             </NavLink>
           </ul>
@@ -57,7 +57,7 @@ const Navbar = () => {
           <NavLink to={"/account"}>
             <li className="cursor-pointer">ACCOUT</li>
           </NavLink>
-          <NavLink to={"/favorite/:id"}>
+          <NavLink to={"/favorite"}>
             <li className="cursor-pointer">FAVOURITE</li>
           </NavLink>
         </ul>

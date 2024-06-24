@@ -35,7 +35,7 @@ const AdminSignIn = () => {
         localStorage.setItem("adlogin", true);
         localStorage.setItem("adminid", `${adminid}`);
         setIsAdminLogin(true);
-        nav(`/adminDashBoard/${adminid}`, { replace: true });
+        nav(`/adminDashBoard`, { replace: true });
       }
     },
   });

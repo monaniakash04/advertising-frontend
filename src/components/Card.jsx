@@ -25,7 +25,8 @@ export default function MediaCard({
 }) {
   const navigate = useNavigate();
   const [save, setSave] = useState(false);
-  const { setListOfAds, city, category, favourite } = useContext(Store);
+  const { setListOfAds, city, category, favourite, allAds, setAllAds } =
+    useContext(Store);
 
   const incrementView = async () => {
     await axios.patch(
@@ -82,11 +83,19 @@ export default function MediaCard({
             setSave(true);
           });
       }
-
-      const data = FetchAllAds(city, category);
-      data.then((value) => {
-        setListOfAds(value);
-      });
+      navigate("/favorite");
+      const data = FetchAllAds();
+      data
+        .then((value) => {
+          setAllAds(value);
+        })
+        .then(() => {
+          setListOfAds(
+            allAds.filter((item) => {
+              return city === item.adcity && category === item.adcategory;
+            })
+          );
+        });
     } else {
       navigate("/signIn");
     }
