@@ -26,7 +26,8 @@ export default function MediaCard({
 }) {
   const navigate = useNavigate();
   const [save, setSave] = useState(false);
-  const { setListOfAds, city, category, favourite } = useContext(Store);
+  const { setListOfAds, city, category, favourite, allAds, setAllAds } =
+    useContext(Store);
 
   useEffect(() => {
     const isFavourite = favourite.some((item) => item.adid === id);
@@ -75,10 +76,18 @@ export default function MediaCard({
           });
       }
 
-      const data = FetchAllAds(city, category);
-      data.then((value) => {
-        setListOfAds(value);
-      });
+      const data = FetchAllAds();
+      data
+        .then((value) => {
+          setAllAds(value);
+        })
+        .then(() => {
+          setListOfAds(
+            allAds.filter((item) => {
+              return city === item.adcity && category === item.adcategory;
+            })
+          );
+        });
     } else {
       navigate("/signIn");
     }

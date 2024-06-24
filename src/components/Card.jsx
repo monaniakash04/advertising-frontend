@@ -32,10 +32,18 @@ export default function MediaCard({
     await axios.patch(
       `${process.env.REACT_APP_SERVER_URL}/incrementViews/postId=${id}`
     );
-    const data = FetchAllAds(city, category);
-    data.then((value) => {
-      setListOfAds(value);
-    });
+    const data = FetchAllAds();
+    data
+      .then((value) => {
+        setAllAds(value);
+      })
+      .then(() => {
+        setListOfAds(
+          allAds.filter((item) => {
+            return city === item.adcity && category === item.adcategory;
+          })
+        );
+      });
   };
 
   useEffect(() => {

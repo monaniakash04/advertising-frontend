@@ -6,12 +6,21 @@ import { FetchAllAds } from "../hooks/FetchAllAds";
 import notFound from "../media/404.svg";
 
 const Home = () => {
-  const data = FetchAllAds("ahmedabad", "properties");
-  const { listOfAds, setListOfAds } = useContext(Store);
+  const { listOfAds, setListOfAds, allAds, setAllAds, city, category } =
+    useContext(Store);
   useEffect(() => {
-    data.then((value) => {
-      setListOfAds(value);
-    });
+    const data = FetchAllAds();
+    data
+      .then((value) => {
+        setAllAds(value);
+      })
+      .then(() => {
+        setListOfAds(
+          allAds.filter((item) => {
+            return city === item.adcity && category === item.adcategory;
+          })
+        );
+      });
   }, []);
 
   return (
