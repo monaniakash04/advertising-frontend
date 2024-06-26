@@ -25,7 +25,7 @@ function App() {
   // favourite ads
   const [favourite, setFavourite] = useState([]);
   // category state
-  const [category, setCategory] = useState("properties");
+  const [category, setCategory] = useState("");
   const [city, setCity] = useState("ahmedabad");
   // admin
   const [isAdminLogin, setIsAdminLogin] = useState(false);

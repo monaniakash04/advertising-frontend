@@ -32,17 +32,9 @@ const Categary = () => {
   };
 
   useEffect(() => {
-    const data = FetchAllAds();
-    data.then((value) => {
-      setAllAds(value);
-    });
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
+    if (category !== "") {
       onChangeHandlarForCityAndCategory();
-      // console.log(allAds);
-    }, 100);
+    }
   }, [category, city]);
   return (
     <>

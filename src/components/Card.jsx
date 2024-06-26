@@ -110,7 +110,7 @@ export default function MediaCard({
   };
 
   return (
-    <div className="max-w-sm rounded-lg font overflow-hidden shadow-xl bg-gradient-to-r from-[#009F6B] via-[#009F6B] to-[#009F6B] hover:shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+    <div className="max-w-sm max-h-[300px] rounded-lg font overflow-hidden shadow-xl bg-gradient-to-r from-[#009F6B] via-[#009F6B] to-[#009F6B] hover:shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
       <div
         onClick={() => {
           navigate(`/Adinfo/${id}`);
@@ -119,7 +119,7 @@ export default function MediaCard({
         className="px-3 py-1 cursor-pointer"
       >
         <div className="font-bold text-md mb-2 text-white">{heading}</div>
-        <p className="line-clamp-4 text-white text-base mb-4 h-[100px] ">
+        <p className="line-clamp-3 text-white text-base mb-4 h-[90px] ">
           {body}
         </p>
       </div>
