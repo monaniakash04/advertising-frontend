@@ -110,7 +110,7 @@ export default function MediaCard({
   };
 
   return (
-    <div className="max-w-sm max-h-[300px] rounded-lg font overflow-hidden shadow-xl bg-gradient-to-r from-[#009F6B] via-[#009F6B] to-[#009F6B] hover:shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+    <div className="max-w-sm h-[300px] rounded-lg font overflow-hidden shadow-xl bg-gradient-to-r from-[#009F6B] via-[#009F6B] to-[#009F6B] hover:shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
       <div
         onClick={() => {
           navigate(`/Adinfo/${id}`);
@@ -120,7 +120,7 @@ export default function MediaCard({
       >
         <div className="font-bold text-md mb-2 text-white">{heading}</div>
         <p className="line-clamp-3 text-white text-base mb-4 h-[90px] ">
-          {body}
+          {body.length <= 30 ? body + "." : body.slice(0, 70) + "..."}
         </p>
       </div>
       <span className="flex justify-center items-center max-w-full m-1 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">
