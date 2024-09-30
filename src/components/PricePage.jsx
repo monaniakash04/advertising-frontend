@@ -14,7 +14,7 @@ const PricePage = () => {
         <li class="mt-2  text-black ">
           <strong className="text-[#009F6B] font">Payment Required:</strong>{" "}
           Before you can create a post, you must first complete the payment
-          process. The cost is <strong>₹30 per ad</strong>. Please pay the
+          process. The cost is <strong>₹50 per ad</strong>. Please pay the
           required amount to the following number:{" "}
           <strong>+91 9854852695</strong>.
         </li>

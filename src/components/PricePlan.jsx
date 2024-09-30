@@ -16,7 +16,7 @@ const PricePlan = () => {
               <h2 class="text-xl md:text-3xl font font-bold">Paid Plan</h2>
             </div>
             <p class="text-2xl font md:text-4xl mt-4 font-semibold text-[#009F6B]">
-              ₹30 <span class="text-base md:text-lg">per ad</span>
+              ₹50 <span class="text-base md:text-lg">per ad</span>
             </p>
             <ul class="mt-6 text-left px-6 space-y-4 text-base md:text-lg">
               <li className="font">
